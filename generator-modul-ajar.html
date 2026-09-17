@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generator Modul Ajar AGC WEB">
+  <title>Generator Modul Ajar | AGC WEB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html" aria-label="AGC WEB Home"><span class="brand-mark">AI</span><span>AGC WEB</span></a>
+    <button class="menu-toggle" aria-label="Buka menu navigasi" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Navigasi utama">
+      <a href="index.html">Home</a><a href="aplikasi-ai.html" class="active">Aplikasi AI</a><a href="tentang.html">Tentang</a><a href="pengembang.html">Pengembang</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-section generator-section">
+<div class="container">
+  <a class="back-link" href="aplikasi-ai.html">← Kembali ke Aplikasi AI</a>
+  <div class="generator-hero">
+    <div>
+      <span class="eyebrow">✦ Generator Modul Ajar</span>
+      <h1 class="page-title">Buat Modul Ajar <span class="gradient-text">lebih cepat.</span></h1>
+      <p class="page-description">Isi informasi pembelajaran di bawah ini. AI akan menyusun modul ajar secara dinamis berdasarkan konteks yang Anda berikan. Hasil tetap dapat ditinjau dan disesuaikan sebelum digunakan.</p>
+    </div>
+    <div class="generator-badge"><span>01</span><small>AI<br>Education Tool</small></div>
+  </div>
+
+  <div class="generator-layout">
+    <form id="moduleForm" class="form-card" novalidate>
+      <div class="form-card-heading"><div><span class="form-kicker">INPUT PEMBELAJARAN</span><h2>Informasi Modul</h2></div><span class="required-note">* wajib diisi</span></div>
+      <div class="form-grid">
+        <label>Nama/Topik Modul *<input id="topic" name="topic" required placeholder="Contoh: Ekosistem dan Rantai Makanan"></label>
+        <label>Mata Pelajaran *<input id="subject" name="subject" required placeholder="Contoh: IPA"></label>
+        <label>Kelas / Fase *<select id="grade" name="grade" required><option value="">Pilih kelas / fase</option><option>Kelas 1 / Fase A</option><option>Kelas 2 / Fase A</option><option>Kelas 3 / Fase B</option><option>Kelas 4 / Fase B</option><option>Kelas 5 / Fase C</option><option>Kelas 6 / Fase C</option><option>Kelas 7 / Fase D</option><option>Kelas 8 / Fase D</option><option>Kelas 9 / Fase D</option><option>Kelas 10 / Fase E</option><option>Kelas 11 / Fase F</option><option>Kelas 12 / Fase F</option></select></label>
+        <label>Alokasi Waktu<input id="duration" name="duration" placeholder="Contoh: 2 × 45 menit"></label>
+        <label class="full">Tujuan Pembelajaran *<textarea id="objective" name="objective" required rows="4" placeholder="Tuliskan kompetensi yang ingin dicapai peserta didik..."></textarea></label>
+        <label>Model Pembelajaran<select id="model" name="model"><option>Problem Based Learning (PBL)</option><option>Project Based Learning (PjBL)</option><option>Discovery Learning</option><option>Inquiry Learning</option><option>Cooperative Learning</option><option>Pembelajaran langsung</option></select></label>
+        <label>Profil / Fokus Karakter<input id="character" name="character" placeholder="Contoh: bernalar kritis, gotong royong"></label>
+        <label class="full">Catatan Tambahan<textarea id="notes" name="notes" rows="3" placeholder="Kebutuhan khusus, konteks sekolah, sumber belajar, atau instruksi lainnya (opsional)..."></textarea></label>
+      </div>
+      <div class="form-actions"><button type="button" class="btn btn-secondary" id="resetBtn">Reset</button><button type="submit" class="btn btn-primary">✦ Susun Modul Ajar dengan AI</button></div>
+      <p class="form-status" id="formStatus" role="status"></p><p class="ai-security-note">🔒 Kunci API disimpan di server, bukan di browser. Backend membaca <code>OPENAI_API_KEY</code> dari environment.</p>
+    </form>
+
+    <aside class="tips-card">
+      <span class="tips-icon">💡</span><h3>Tips mengisi</h3>
+      <ul><li>Gunakan topik yang spesifik agar rancangan lebih terarah.</li><li>Tuliskan tujuan pembelajaran dengan kata kerja yang terukur.</li><li>Tambahkan konteks kelas atau kebutuhan peserta didik bila diperlukan.</li></ul>
+      <div class="workflow"><span>1</span><b>Isi data</b><span>→</span><span>2</span><b>Susun</b><span>→</span><span>3</span><b>Tinjau</b></div>
+    </aside>
+  </div>
+
+  <section id="resultSection" class="result-section" hidden>
+    <div class="result-heading"><div><span class="form-kicker">HASIL RANCANGAN</span><h2>Draft Modul Ajar</h2><p id="resultMeta"></p></div><button class="btn btn-secondary" id="printBtn">Cetak / Simpan PDF</button></div>
+    <article id="resultContent" class="module-document"></article>
+  </section>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><span class="footer-brand">AGC WEB</span><span>©️ 2026 • Taufik</span></div></footer>
+<script>window.AGC_CONFIG={moduleGeneratorEndpoint:"/api/generate-module"};</script>
+<script src="js/script.js"></script>
+<script src="js/generator-modul-ajar.js"></script>
+</body>
+</html>
